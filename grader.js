@@ -58,16 +58,16 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     return out;
 };
 
-var checkUrl = function(url, checksfile) {
+var checkUrl = function(url) {
+fs.writeFileSync('temp.html', '');
   rest.get(url)
     .on('complete', function(result) {
         if (result instanceof Error) {
-          console.error('Error: ' + util.format(response.message));
+          console.error('Error: ' + util.format(result.message));
         } else {
           fs.writeFileSync('temp.html', result);
-          checkHtmlFile("temp.html", checksfile);
         }
-    });
+    });     
 }
 
 if(require.main == module) {
@@ -77,8 +77,10 @@ if(require.main == module) {
         .option('-u, --url <url>', 'Path to html file via url')
         .parse(process.argv);
         if (program.url) {
-          var checkJson = checkUrl(program.url, program.checks);
+          checkUrl(program.url);
+          var checkJson = checkHtmlFile('temp.html', program.checks); 
           var outJson = JSON.stringify(checkJson, null, 4);
+            fs.unlinkSync('temp.html');
         } else {
           var checkJson = checkHtmlFile(program.file, program.checks);
           var outJson = JSON.stringify(checkJson, null, 4);
