@@ -27,7 +27,7 @@ var cheerio = require('cheerio');
 var rest = require('restler');
 var util = require('util');
 
-var HTMLFILE_DEFAULT = "index.html";
+var HTMLFILE_DEFAULT = __dirname + "/index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
 
 var assertFileExists = function(infile) {
@@ -40,7 +40,7 @@ var assertFileExists = function(infile) {
 };
 
 var cheerioHtmlFile = function(htmlfile) {
-    return cheerio.load(fs.readFileSync(htmlfile));
+    return cheerio.load(fs.readFileSync(htmlfile, 'utf8'));
 };
 
 var loadChecks = function(checksfile) {
@@ -48,7 +48,7 @@ var loadChecks = function(checksfile) {
 };
 
 var checkHtmlFile = function(htmlfile, checksfile) {
-    $ = cheerioHtmlFile(htmlfile);
+    var $ = cheerioHtmlFile(htmlfile);
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
@@ -58,16 +58,18 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     return out;
 };
 
-var checkUrl = function(url) {
-fs.writeFileSync('temp.html', '');
+var checkUrl = function(url, checksfile) {
+fs.writeFileSync(__dirname + '/tmp.html', '');
   rest.get(url)
     .on('complete', function(result) {
         if (result instanceof Error) {
           console.error('Error: ' + util.format(result.message));
         } else {
-          fs.writeFileSync('temp.html', result);
+          fs.writeFileSync(__dirname + '/tmp.html', result);
         }
-    });     
+    });    
+    var checkJson = checkHtmlFile(__dirname + '/tmp.html', checksfile);
+    return checkJson;
 }
 
 if(require.main == module) {
@@ -76,16 +78,16 @@ if(require.main == module) {
         .option('-f, --file <html_file>', 'Path to index.html', assertFileExists, HTMLFILE_DEFAULT)
         .option('-u, --url <url>', 'Path to html file via url')
         .parse(process.argv);
-        if (program.url) {
-          checkUrl(program.url);
-          var checkJson = checkHtmlFile('temp.html', program.checks); 
-          var outJson = JSON.stringify(checkJson, null, 4);
-            fs.unlinkSync('temp.html');
-        } else {
-          var checkJson = checkHtmlFile(program.file, program.checks);
-          var outJson = JSON.stringify(checkJson, null, 4);
-        }
-        console.log(outJson);
+
+    if (program.url) {
+      var checkJson = checkUrl(program.url, program.checks);
+      var outJson = JSON.stringify(checkJson, null, 4);
+        // fs.unlinkSync(__dirname + '/tmp.html');
+    } else {
+      var checkJson = checkHtmlFile(program.file, program.checks);
+      var outJson = JSON.stringify(checkJson, null, 4);
+    }
+    console.log(outJson);
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
