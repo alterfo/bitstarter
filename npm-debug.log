@@ -1,0 +1,16 @@
+1417 error Error: read ETIMEDOUT
+1417 error     at errnoException (net.js:878:11)
+1417 error     at TCP.onread (net.js:539:19)
+1418 error If you need help, you may report this log at:
+1418 error     <http://github.com/isaacs/npm/issues>
+1418 error or email it to:
+1418 error     <npm-@googlegroups.com>
+1419 error System Darwin 12.4.0
+1420 error command "/Volumes/Untitled/.homebrew/Cellar/node/0.10.2/bin/node" "/Volumes/Untitled/.rvm/bin/npm" "install" "express"
+1421 error cwd /Volumes/Untitled/Sites/bitstarter
+1422 error node -v v0.10.2
+1423 error npm -v 1.2.15
+1424 error syscall read
+1425 error code ETIMEDOUT
+1426 error errno ETIMEDOUT
+1427 verbose exit [ 1, true ]
