@@ -4,10 +4,10 @@
 		padding-top: 60px;
 	}
 	.linediv-l {
-		border-right: 1px white solid;
+		border-right: 1px #333 solid;
 	}
 	.linediv-r {
-		border-left: 1px white solid;
+		border-left: 1px #333 solid;
 	}
 }
 
@@ -18,10 +18,10 @@
 		padding: 2.5% 10%;
 	}
 	.linediv-l {
-		border-bottom: 1px white solid;
+		border-bottom: 1px #333 solid;
 	}
 	.linediv-r {
-		border-top: 1px white solid;
+		border-top: 1px #333 solid;
 	}
 }
 
@@ -55,15 +55,14 @@ p {
 	padding: 2% 0%;
 }
 .actions {
-	background-color: #343434;
-	padding: 3% 0%;
+	
 }
 
 .video, .thermometer, .order, .social, .statistics {
 	text-align: center;
 }  
 .statistics h3, .statistics p {
-	color: white;
+	color: #333;
 }
 
 /*Marketing Copy and Footer*/
