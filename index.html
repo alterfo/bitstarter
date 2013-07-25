@@ -21,7 +21,67 @@
 	<link rel="stylesheet" href="static/css/style.css">
 
 	<script src="static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	<script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"
+	<script type="text/javascript">
+ymaps.ready(init);
+
+function init () {
+    var myMap = new ymaps.Map("map", {
+            center: [55.784907, 49.12618],
+            zoom: 16
+        }),
+
+        // Создаем геообъект с типом геометрии "Точка".
+        markProblem = new ymaps.GeoObject({
+            // Описание геометрии.
+            geometry: {
+                type: "Point",
+                coordinates: [55.783907, 49.12818]
+
+            },
+            // Свойства.
+            properties: {
+                // Контент метки.
+                iconContent: 'Проблема с машиной',
+                balloonContent: 'Проблема с зажиганием, не могу завестись, надо прикурить. Белая калина 777'
+            }
+        }, {
+            // Опции.
+            // Иконка метки будет растягиваться под размер ее содержимого.
+            preset: 'twirl#redStretchyIcon',
+            // Метку можно перемещать.
+            draggable: true
+        }),
+    	markResponse = new ymaps.GeoObject({
+            // Описание геометрии.
+            geometry: {
+                type: "Point",
+                coordinates: [55.785458, 49.12617]
+
+            },
+            // Свойства.
+            properties: {
+                // Контент метки.
+                iconContent: 'Я подойду через 20 минут',
+                balloonContent: 'Девушка в желтом шарфе'
+            }
+        }, {
+            // Опции.
+            // Иконка метки будет растягиваться под размер ее содержимого.
+            preset: 'twirl#redStretchyIcon',
+            // Метку можно перемещать.
+            draggable: true
+        });
+    
+
+
+    // Добавляем все метки на карту.
+    myMap.geoObjects
+        .add(markResponse)
+        .add(markProblem);
+}
+
+</script>
 </head>
 <body>
     <!-- NAVBAR
@@ -145,7 +205,8 @@
 				</div>
 			</div>
 			<div class="span5 video">
-				<img src="static/img/hands.jpg" alt="" class="img-polaroid">
+				 <div id="map" style="width:480px; height:300px"></div>
+				<!--<img src="static/img/hands.jpg" alt="" class="img-polaroid">-->
 			</div>
 		</div>
 
