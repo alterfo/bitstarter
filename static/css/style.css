@@ -22,10 +22,13 @@
       margin-top: 20px;
       margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
     }
-    .navbar-wrapper .navbar {
+    .navbar-wrapper .container {
+	width: 85.55555555%
 
     }
-
+    .img-polaroid {
+	margin-left: -4px;
+    }
     /* Remove border and change up box shadow for more contrast */
     .navbar .navbar-inner {
       border: 0;
@@ -90,7 +93,8 @@
     .carousel-caption {
       background-color: transparent;
       position: static;
-      padding: 0 1.5em;
+      padding: 0 14.555%;
+	text-align:center;
 
     }
     .carousel-caption h1,
