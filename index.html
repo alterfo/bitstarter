@@ -9,317 +9,223 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link href="static/css/bootstrap3.css" rel="stylesheet">
-	<link href="static/css/bootstrap-responsive3.css" rel="stylesheet">
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="static/css/bootstrap-overrides.css" rel="stylesheet">
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="static/css/services.css">
+	<link href="static/css/index.css" rel="stylesheet">
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,900,400italic,700italic,300,300italic,900italic&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+
+	<link href="static/css/animate.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="static/js/html5shiv.js"></script>
     <![endif]-->
 
-	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,400italic,500italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,600,700,800&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="static/css/style.css">
-
-	<script src="static/js/jquery.min.js"></script>
-	<script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
-
-	<script type="text/javascript">
-	ymaps.ready(init);
-	
-	function init () {
-	    var myMap = new ymaps.Map("map", {
-	            center: [55.784907, 49.12618],
-	            zoom: 16
-	        }),
-	
-	        // Создаем геообъект с типом геометрии "Точка".
-	        markProblem = new ymaps.GeoObject({
-	            // Описание геометрии.
-	            geometry: {
-	                type: "Point",
-	                coordinates: [55.783907, 49.12818]
-	
-	            },
-	            // Свойства.
-	            properties: {
-	                // Контент метки.
-	                iconContent: 'Проблема с машиной',
-	                balloonContent: 'Проблема с зажиганием, не могу завестись, надо прикурить. Белая калина 777'
-	            }
-	        }, {
-	            // Опции.
-	            // Иконка метки будет растягиваться под размер ее содержимого.
-	            preset: 'twirl#redStretchyIcon',
-	            // Метку можно перемещать.
-	            draggable: true
-	        }),
-	    	markResponse = new ymaps.GeoObject({
-	            // Описание геометрии.
-	            geometry: {
-	                type: "Point",
-	                coordinates: [55.785458, 49.12617]
-	
-	            },
-	            // Свойства.
-	            properties: {
-	                // Контент метки.
-	                iconContent: 'Я подойду через 20 минут',
-	                balloonContent: 'Девушка в желтом шарфе'
-	            }
-	        }, {
-	            // Опции.
-	            // Иконка метки будет растягиваться под размер ее содержимого.
-	            preset: 'twirl#redStretchyIcon',
-	            // Метку можно перемещать.
-	            draggable: true
-	        });
-	    
-	
-	
-	    // Добавляем все метки на карту.
-	    myMap.geoObjects
-	        .add(markResponse)
-	        .add(markProblem);
-	}
-	
-	</script>
 </head>
-<body>
-    <!-- NAVBAR
-    ================================================== -->
-    <div class="navbar-wrapper">
-      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
-      <div class="container">
-
-        <div class="navbar navbar-inverse">
-          <div class="navbar-inner">
-            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="#">Альтавиэль</a>
-            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+<body class="pull_top">
+<!-- Navbar !!! -->
+  <div class="navbar transparent navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="index.html">
+                <strong>Альтавиэль</strong>
+            </a>
             <div class="nav-collapse collapse">
-              <ul class="nav">
-                <li class="active"><a href="#">Главная</a></li>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#contact">Контактная информация</a></li>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!-- /.navbar-inner -->
-        </div><!-- /.navbar -->
+                <ul class="nav pull-right">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="about-us.html">О нас</a></li>
+                    <!-- <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            PAGES
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="portfolio-item.html">Portfolio Item</a></li>
+                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                            <li><a href="sign-in.html">Sign in</a></li>
+                            <li><a href="sign-up.html">Sign up</a></li>
+                            <li><a href="backgrounds.html">Backgrounds</a></li>
+                        </ul>
+                    </li> 
+                    <li><a href="pricing.html">PRICING</a></li>-->
+                    <li><a href="contact.html">Контактная информация</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+<!--                     <li><a class="btn-header" href="sign-up.html">Sign up</a></li>
+                    <li><a class="btn-header" href="sign-in.html">Sign in</a></li> -->
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+<!-- End navbar !!! -->
 
-      </div> <!-- /.container -->
-    </div><!-- /.navbar-wrapper -->
+
 
 <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="static/img/slide-01.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>&laquo;Сигнальная ракета&raquo;</h1>
-              <p class="lead">Социальный cервис взаимопомощи в критичных и не очень ситуациях</p>
-              <a class="btn btn-large btn-primary" href="#">Нажми меня!</a>
+<section id="feature_slider" class="">
+        <!-- 
+            Each slide is composed by <img> and .info
+            - .info's position is customized with css in index.css
+            - each <img> parallax effect is declared by the following params inside its class:
+            
+            example: class="asset left-472 sp600 t120 z3"
+            left-472 means left: -472px from the center
+            sp600 is speed transition
+            t120 is top to 120px
+            z3 is z-index to 3
+            Note: Maintain this order of params
+
+            For the backgrounds, you can combine from the bgs folder :D
+        -->
+        <article class="slide" id="showcasing" style="background: url('static/img/landscape.png') repeat-x top center;">
+            <img class="asset left-30 sp600 t120 z1" src="static/img/macbook.png" />
+            <div class="info">
+                <h2>Сигнальная ракета</h2>
             </div>
-          </div>
+        </article>
+        <article class="slide" id="ideas" style="background: url('static/img/aqua.jpg') repeat-x top center;">
+            <div class="info">
+                <h2>Мобильный сервис взаимопомощи в критичных и не очень ситуациях.</h2>
+            </div>
+            <img class="asset left-480 sp600 t260 z1" src="static/img/left.png" />
+            <img class="asset left-210 sp600 t213 z2" src="static/img/middle.png" />
+            <img class="asset left60 sp600 t260 z1" src="static/img/right.png" />
+        </article>
+        <article class="slide" id="tour" style="background: url('static/img/color-splash.jpg') repeat-x top center;">
+            <img class="asset left-472 sp650 t210 z3" src="static/img/ipad.png" />
+            <img class="asset left-365 sp600 t270 z4" src="static/img/iphone.png" />
+            <img class="asset left-350 sp450 t135 z2" src="static/img/desktop.png" />
+            <img class="asset left-185 sp550 t220 z1" src="static/img/macbook.png" />
+            <div class="info">
+                <h2>Добра должно быть больше</h2>
+                <a href="features.html">Узнать подробнее</a>
+            </div>
+        </article>
+        <article class="slide" id="responsive" style="background: url('static/img/indigo.jpg') repeat-x top center;">
+            <img class="asset left-472 sp600 t120 z3" src="static/img/ymap.png" />
+            <img class="asset left-190 sp500 t120 z2" src="static/img/gmap.png" />
+            <div class="info">
+                <h2>
+                    События на картах <strong>Яндекс и Google</strong>
+                </h2>                
+            </div>
+        </article>
+    </section>
+<!-- /.carousel -->
+
+<div id="process" style="margin-top:70px">
+        <div class="container">
+            <div class="section_header">
+                <h3>Как это <span>работает</span></h3>
+            </div>
+            <div class="row services_circles">
+                <div class="span4 description">
+                    <div class="text active">
+                        <h4>Решите что вам нужно.</h4>
+                        <p>
+                            В жизни много событий и не все они хорошие. Техника ломается, люди подводят, дедлайны проектов горят. И очень часто нам было бы легче если бы кто-нибудь нам помог. Вы не всесильны, это нужно просто принять. Решить что вам нужна помощь и попросить ее - очень важный и зачастую поворотный шаг в жизни.
+                        </p>
+                    </div>
+                    <div class="text">
+                        <h4>Попросите о помощи.</h4>
+                        <p>
+                            Вокруг множество людей и кто-то обязательно мог бы и, более того, хочет помочь вам &mdash; с машиной, с проектом, с любой проблемой. Отправить запрос о помощи можно всего лишь одной кнопкой. Сообщение придет всем ближайшим подписчикам сервиса выбраным им способом - через email, sms или специальное приложение.
+						</p>
+                    </div>
+                    <div class="text">
+                        <h4>Поблагодарите.</h4>
+                        <p>
+                            Сервис предоставляет возможность поблагодарить спасителя виртуальными вещами. Чем больше человек получил благодарностей, тем выше он в рейтинге.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="span7 areas">
+                    <div class="circle active">
+                        <img src="static/img/plan.png" />
+                        <span>Решите</span>
+                    </div>
+                    <div class="circle">
+                        <img src="static/img/develop.png" />
+                        <span>Попросите</span>
+                    </div>
+                    <div class="circle last_circle">
+                        <img src="static/img/design.png" />
+                        <span>Поблагодарите</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="item">
-          <img src="static/img/slide-02.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>
-              <p class="lead">
-              		Ни одно доброе деяние, даже самое маленькое, не пропадает втуне.
-					<small>Эзоп</small>
-			  </p></h1>
-              <a class="btn btn-large btn-primary" href="#">Читать больше</a>
+    </div>
+<!-- End circles -->
+
+<div id="features">
+        <div class="container">
+            <div class="section_header">
+                <h3>Особенности</h3>
+            </div> 
+            <div class="row feature">
+                <div class="span6">
+                    <img src="static/img/showcase1.png" />
+                </div>
+                <div class="span6 info">
+                    <h3>
+                        <img src="static/img/features-ico1.png" />
+                        Работает везде где есть интернет
+                    </h3>
+                    <p>
+                        У вас очень много возможностей попросить о помощи &mdash; через мобильное приложение, через сайт на вашем домашнем компьютере, через sms-сервис. Но помните: вы всегда можете просто подойти к ближайшему человеку и улыбнувшись попросить его.
+                    </p>
+                </div>
             </div>
-          </div>
+            <div class="row feature ss">
+                <div class="span6 info">
+                    <h3>
+                        <img src="static/img/features-ico2.png" />
+                        Больше общения
+                    </h3>
+                    <p>
+                        Добрые люди должны знать друг друга в лицо. Давайте собираться вместе. Это и виртуальная площадка для общения и обмена идеями как сделать мир лучше. Когда ты охвачен великой идеей, другие люди обязательно помогут осуществить ее.
+                    </p>
+                </div>
+                <div class="span6">
+                    <img src="static/img/showcase2.png" class="pull-right" />
+                </div>
+            </div>
+            <div class="row feature ss">
+                <div class="span6">
+                    <img src="static/img/showcase3.png" />
+                </div>
+                <div class="span6 info">
+                    <h3>
+                        <img src="static/img/features-ico3.png" />
+                        Система рейтингов
+                    </h3>
+                    <p>
+                        Каждый запрос можно взять на исполнение, а можно пометить как спам. Это сделано для того, чтобы люди фокусировались на том, что им действительно интересно сделать для другого человека. Событие с высоким рейтингом остается открытым для обсуждения что позволяет людям проанализировать проблему и найти совместное решение.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="item">
-          <img src="static/img/slide-03.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
-
-
-	<div class="container">
-		<div class="row-fluid pitch">
-
-
-			<div class="span5 actions offset1">
-				<div class="span10 offset1">
-					<div class="statistics">
-						<div class="span4">
-							<div class="linediv-l">
-								<h3>1</h3><p>поделился</p>
-							</div>
-						</div>
-						<div class="span4">
-							<div class="linediv-c">
-								<h3>$100</h3><p>из $10000</p>
-							</div>
-						</div>
-						<div class="span4">
-							<div class="linediv-r">
-								<h3>60</h3><p> дней</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="span10 offset1">
-					<div class="thermometer progress active">
-						<div class="bar bar-success" style="width: 1%;"></div>
-						<div class="bar bar-warning" style="width: 99%;"></div>
-					</div>
-				</div>
-				<div class="span8 offset2 order">
-					<button class="btn btn-success btn-large">Предварительная регистрация</button>
-				</div>
-				<div class="span10 offset1 social">
-
-
-					<script type="text/javascript">(function() {
-					          if (window.pluso)if (typeof window.pluso.start == "function") return;
-					          var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-					          s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-					          s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-					          var h=d[g]('head')[0] || d[g]('body')[0];
-					          h.appendChild(s);
-					          })();</script>
-					        <div class="pluso" data-options="big,round,multiline,horizontal,counter,theme=01" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print" data-background="transparent" data-url="http://altaviel.ru" data-title="Сигнальная ракета" data-description="Сервис социальной взаимопомощи в критичных и не очень ситуациях. Нажимаете кнопку на смартфоне - ближайшим подписчикам приходит сообщение о вашей проблеме."></div>
-
-				</div>
-			</div>
-			<div class="span5 video">
-				 <div id="map" style="width:480px; height:300px"></div>
-			</div>
-		</div>
-
-
-		<div class="row-fluid section1">
-			<div class="span5 offset1 asset">
-				<img src="static/img/hands.jpg" alt="" class="img-polaroid">
-			</div>
-			<div class="span5 copy">
-				<p>
-					<blockquote>Ни одно доброе деяние, даже самое маленькое, не пропадает втуне.
-						<small>Эзоп</small>
-					</blockquote>
-					Воспользуйтесь уникальной возможностью принять участие в сервисе, способном изменить вашу жизнь и жизнь многих других людей в хорошую сторону. Как это работает: 
-						<ol>
-							<li>
-								Вы попали в затруднительную ситуацию и хотите чтобы вам помогли (например, сломалась машина, а вы - девушка)
-							</li>
-							<li>
-								Вы открываете сайт или специальное приложение на телефоне, указываете свое месторасположение и отправляете сообщение.
-							</li>
-							<li>
-								Сообщение рассылается ближайшим подписчикам, о чем вам приходит уведомление, а затем - сообщение вызвавшихся помочь волонтеров.
-							</li>
-						</ol>
-				</p>
-			</div>
-		</div>
-
-		<div class="row-fluid section2">
-			<div class="span5 offset1 copy copy-right">
-				<p>
-					<blockquote>Легче зажечь одну маленькую свечу, чем клясть темноту.
-						<small>Конфуций</small>
-					</blockquote>
-					Поделитесь этой новостью в социальных сетях, чтобы помочь этому сервису сбыться. Я верю в добро, я верю в любовь, я верю что сервис будет пользоваться популярностью, и в мире станет больше добра, а хорошие люди будут на виду.
-				</p>					
-					<div class="span8 offset2 social">
-					        <div class="pluso" data-options="big,round,multiline,horizontal,counter,theme=01" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print" data-background="transparent" data-url="http://altaviel.ru" data-title="Сигнальная ракета" data-description="Сервис социальной взаимопомощи в критичных и не очень ситуациях. Нажимаете кнопку на смартфоне - ближайшим подписчикам приходит сообщение о вашей проблеме."></div>
-					</div>
-
-			</div>
-		
-			<div class="span5 asset">
-				<img src="static/img/map2.jpg" alt="" class="img-polaroid">
-			</div>
-		</div>
-
-<!-- For the FAQ, we introduce a little bit of JS, using the accordion. -->
-      <!-- This brings in jquery.js and bootstrap.js as dependencies. -->
-      <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
-      <div class="row-fluid faq">
-          <div class="span10 offset1">
-            <h3>Часто задаваемые вопросы</h3>
-            <div class="accordion" id="accordion2">
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseOne">
-                    Почему "сигнальная ракета"?
-                  </a>
-                </div>
-                <div id="collapseOne" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    Сигнальная ракета - сигнальное средство, предназначена для подачи сигналов в дневное и ночное время с целью ориентировки и оповещения на местности. Человек, отправивший сообщение - запускает виртуальную сигнальную ракету и те, кто ее увидел - знают что там нужна помощь.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseTwo">
-                    What's a Frequently Asked Question?
-                  </a>
-                </div>
-                <div id="collapseTwo" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    A question which is commonly asked by users.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-      </div>
-
-
-		<div class="row-fluid footer">
-			<div class="span12">
-				<p>This work is licensed under
-				the <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a> without all the cruft that would otherwise be put at the bottom of the page.</p>
-			</div>
-		</div>
-	</div>
+    </div>
 
 
 
-
-
-	<script src="static/js/bootstrap.min.js"></script>
-    <script src="static/js/bootstrap-transition.js"></script>
-    <script src="static/js/bootstrap-alert.js"></script>
-    <script src="static/js/bootstrap-modal.js"></script>
-    <script src="static/js/bootstrap-dropdown.js"></script>
-    <script src="static/js/bootstrap-scrollspy.js"></script>
-    <script src="static/js/bootstrap-tab.js"></script>
-    <script src="static/js/bootstrap-tooltip.js"></script>
-    <script src="static/js/bootstrap-popover.js"></script>
-    <script src="static/js/bootstrap-button.js"></script>
-    <script src="static/js/bootstrap-collapse.js"></script>
-    <script src="static/js/bootstrap-carousel.js"></script>
-    <script src="static/js/bootstrap-typeahead.js"></script>
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/theme.js"></script>
+<script src="static/js/index-slider.js"></script>
 
 
 </body>
