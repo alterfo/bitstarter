@@ -407,6 +407,11 @@ header {
     margin-right: -20px;
     margin-left: -20px;
   }
+
+  #process .areas {
+    margin-top: 250px;
+  }
+
   #footer{
     margin-right: -20px;
     margin-left: -20px;
@@ -458,3 +463,20 @@ header {
 /* Icons
 -------------------------------------------------- */
 
+.pluso, .btn-help {
+  display:block;
+  margin:0 auto;
+}
+
+.charts_wrapp {
+  text-align: center;
+}
+
+.charts_wrapp h3 {
+  font-size:4em;
+  color:#963;
+}
+.charts_wrapp p {
+  font-size:1.2em;
+  color:#369;
+}
